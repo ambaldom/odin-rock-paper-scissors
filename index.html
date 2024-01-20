@@ -7,8 +7,41 @@
 </head>
 <body>
     <script>
-        console.log("Hello, World!")
-        
+                     
+        function getComputerChoice() {
+            let array = ["Rock", "Paper", "Scissors"];
+            let computerChoice = array[Math.floor(Math.random() * array.length)];
+            return computerChoice;
+        }   
+
+            function janken(playerSelection,computerSelection) {
+            if (playerSelection === "rock" && computerSelection === "paper") {
+                return "You lose! Paper beats rock";
+            } else if (playerSelection === "rock" && computerSelection === "scissors") {
+                return "You win! Rock beats scissors";
+            } else if (playerSelection === "paper" && computerSelection === "rock") {
+                return "You win! Paper beats rock";          
+            } else if (playerSelection === "paper" && computerSelection === "scissors") {
+                return "You lose! Scissors beats paper";          
+            } else if (playerSelection === "scissors" && computerSelection === "paper") {
+                return "You win! Scissors beats paper";        
+            } else if (playerSelection === "scissors" && computerSelection === "rock") {
+                return "You lose! Rock beats scissors";
+            } else {
+                return "It's a tie! Play again";
+            }
+        }
+    
+    let playerSelection1 = prompt("Please enter your choice:", "Rock, Paper, Scissors");
+    let playerSelection = playerSelection1.toLowerCase();
+    
+    let computerSelection = getComputerChoice().toLowerCase();
+
+    console.log("Player choice: " + playerSelection);
+    console.log("Computer choice: " + computerSelection);
+    console.log(janken(playerSelection,computerSelection));
+
+
     </script>
     
 </body>
