@@ -6,15 +6,22 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <script>
-                     
+
+    <script>     
+
         function getComputerChoice() {
-            let array = ["Rock", "Paper", "Scissors"];
+            let array = ["rock", "paper", "scissors"];
             let computerChoice = array[Math.floor(Math.random() * array.length)];
             return computerChoice;
         }   
 
-            function janken(playerSelection,computerSelection) {
+        function getPlayerChoice() {
+            let playerInput = prompt("Please enter your choice:", "rock, paper, scissors");
+            let result = playerInput.toLowerCase();
+            return result;
+        }
+
+        function playRound(playerSelection,computerSelection) {
             if (playerSelection === "rock" && computerSelection === "paper") {
                 return "You lose! Paper beats rock";
             } else if (playerSelection === "rock" && computerSelection === "scissors") {
@@ -31,18 +38,37 @@
                 return "It's a tie! Play again";
             }
         }
-    
-    let playerSelection1 = prompt("Please enter your choice:", "Rock, Paper, Scissors");
-    let playerSelection = playerSelection1.toLowerCase();
-    
-    let computerSelection = getComputerChoice().toLowerCase();
-
-    console.log("Player choice: " + playerSelection);
-    console.log("Computer choice: " + computerSelection);
-    console.log(janken(playerSelection,computerSelection));
-
-
+     
+        function game() {
+            let computerScore = 0;
+            let playerScore = 0;
+         
+        for (i = 0; i < 5; i++) {
+            let result = playRound(getPlayerChoice(),getComputerChoice());
+            console.log(result);
+            if (result.includes("win")) {
+                playerScore++;
+                console.log(`Player: ` + playerScore + ` | Computer: ` + computerScore);
+            } else if (result.includes("lose")) {
+                computerScore++;
+                console.log(`Player: ` + playerScore + ` | Computer: ` + computerScore);
+            } else if (result.includes("tie")) {
+                console.log(`Player: ` + playerScore + ` | Computer: ` + computerScore);  
+            }
+          }
+        console.log(`Final Results: Player: ` + playerScore + ` | Computer: ` + computerScore); 
+            if (playerScore > computerScore) {
+                console.log("You win!");
+            }  else if (playerScore < computerScore) {
+                console.log("You lose!");
+            }  else {
+                console.log("You tie!");
+            } 
+        }
+        
+        game();    
+              
     </script>
-    
+
 </body>
 </html>
