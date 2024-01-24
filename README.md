@@ -6,7 +6,6 @@ The first iteration of the game is five rounds and plays inputs from the user ag
 
 The second iteration includes a button for the player's selection and is only one round.
 
-
 The project showcases important soft skills such as problem solving, learning new concepts and applying them, and resourcefulness to find the right answers when the path forward isn't so clear.
 
 
